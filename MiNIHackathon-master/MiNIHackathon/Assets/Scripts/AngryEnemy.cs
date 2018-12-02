@@ -28,13 +28,13 @@ public class AngryEnemy : MonoBehaviour
             var currDistance = diff.sqrMagnitude;
             Debug.Log("curr: " + currDistance + "distance: " + distance);
 
-            if (currDistance < distance - 5)
+            if (currDistance < distance - 1)
             {
                 closestEnemy = enemy;
                 distance = currDistance;
             }
         }
-
+        
         transform.LookAt(closestEnemy.transform);
         transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, speed);
     }
