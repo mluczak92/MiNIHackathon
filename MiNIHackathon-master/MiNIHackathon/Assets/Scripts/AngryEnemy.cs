@@ -18,7 +18,7 @@ public class AngryEnemy : MonoBehaviour
     void Update()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("cel");
-        GameObject closestEnemy = null;
+        GameObject closestEnemy = choina;
         var distance = Mathf.Infinity;
         var playerPos = transform.position;
 
@@ -26,8 +26,9 @@ public class AngryEnemy : MonoBehaviour
         {
             var diff = enemy.transform.position - playerPos;
             var currDistance = diff.sqrMagnitude;
+            Debug.Log("curr: " + currDistance + "distance: " + distance);
 
-            if (currDistance < distance)
+            if (currDistance < distance - 5)
             {
                 closestEnemy = enemy;
                 distance = currDistance;
