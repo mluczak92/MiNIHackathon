@@ -46,6 +46,7 @@ public class AngryEnemy : MonoBehaviour
         else if (col.gameObject.name == bombaName)
         {
             Destroy(gameObject);
+            Destroy(col.gameObject);
             FindObjectOfType<GameController>().SpawnBombka();
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
+using HoloToolkit.Unity.SpatialMapping;
 
 public class GameController : MonoBehaviour
 {
@@ -16,8 +17,11 @@ public class GameController : MonoBehaviour
     public int iloscBombek = 10;
 
     GameObject choinka;
+    TapToPlace choinkaSc;
 
     private bool IsGravity = false;
+    private bool wasTrue = false;
+    private bool started = false;
 
     // Use this for initialization
     void Start()
@@ -37,7 +41,17 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (choinkaSc != null && !started)
+        {
+            if (choinkaSc.IsBeingPlaced)
+                wasTrue = true;
+            if (wasTrue && !choinkaSc.IsBeingPlaced)
+            {
+                started = true;
+                SpawnBombki();
+                SpawnNextEnemy();
+            }
+        }
     }
 
     public void StartGame()
@@ -45,8 +59,9 @@ public class GameController : MonoBehaviour
         Debug.Log("GameController::StartGame");
 
         choinka = SpawnObject();
-        SpawnBombki();
-        SpawnNextEnemy();
+        choinkaSc = choinka.GetComponent<TapToPlace>();
+        //SpawnBombki();
+        //SpawnNextEnemy();
     }
 
     public GameObject SpawnObject()
