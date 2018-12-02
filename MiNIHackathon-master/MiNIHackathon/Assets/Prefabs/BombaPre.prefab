@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 135428538720571558}
   - component: {fileID: 114878980899304564}
   - component: {fileID: 114283903134081508}
+  - component: {fileID: 54117436988699354}
   m_Layer: 0
   m_Name: BombaPre
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 1960973658299098}
   m_LocalRotation: {x: -0.7071068, y: -0.000000015454312, z: -0.000000015454312, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,6 +89,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960973658299098}
   m_Mesh: {fileID: 4300000, guid: 9a8f818a7671ded4384e44bc35e8d04f, type: 3}
+--- !u!54 &54117436988699354
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960973658299098}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114253022573423092
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,9 +9,13 @@ public class GameController : MonoBehaviour
 
     public Spawnable spawnObjectPrefab;
     public Spawnable enemyPrefab;
+    public Spawnable bombkaPrefab;
     public int startDistance = 2;
     public int enemyRadius = 4;
     public int enemySeconds = 1;
+    public int iloscBombek = 10;
+
+    GameObject choinka;
 
     private bool IsGravity = false;
 
@@ -40,13 +44,29 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("GameController::StartGame");
 
-        SpawnObject();
+        choinka = SpawnObject();
+        SpawnBombki();
         SpawnNextEnemy();
     }
 
-    public void SpawnObject()
+    public GameObject SpawnObject()
     {
-        Spawn(spawnObjectPrefab, new Vector3(0, 0, startDistance), Quaternion.identity);
+        return Spawn(spawnObjectPrefab, new Vector3(startDistance, 0, startDistance), Quaternion.identity);
+    }
+
+    private void SpawnBombki()
+    {
+        BoxCollider box = choinka.GetComponent<BoxCollider>();
+        Vector3 choinkaPoss = choinka.transform.position;
+        for (int i = 0; i < iloscBombek; i++)
+        {
+            float from = -enemyRadius + startDistance;
+            float to = enemyRadius + startDistance;
+            GameObject bombka = Spawn(bombkaPrefab, new Vector3(Random.Range(from, to), Random.Range(choinkaPoss.y, box.size.y), Random.Range(from, to)), Quaternion.identity);
+            Vector3 closest = box.ClosestPoint(bombka.transform.position);
+            bombka.transform.position = closest;
+        }
+
     }
 
     private void SpawnNextEnemy()
@@ -63,23 +83,15 @@ public class GameController : MonoBehaviour
         SpawnNextEnemy();
     }
 
-    public void Spawn(
+    public GameObject Spawn(
     Spawnable spawnObjectPrefab,
     Vector3 position,
     Quaternion rotation)
     {
-        if (spawnObjectPrefab != null)
-        {
-            Debug.Log("Spawner::Spawn");
-            var spawnedObject = Instantiate(spawnObjectPrefab, position, rotation, null);
-
-            SpawnInit(spawnedObject);
-        }
-        else
-        {
-            Debug.Log("NULL JAKIS :(");
-        }
-
+        Debug.Log("Spawner::Spawn");
+        var spawnedObject = Instantiate(spawnObjectPrefab, position, rotation, null);
+        SpawnInit(spawnedObject);
+        return spawnedObject.MyGameObject;
     }
 
     private void SpawnInit(Spawnable spawnedObject)

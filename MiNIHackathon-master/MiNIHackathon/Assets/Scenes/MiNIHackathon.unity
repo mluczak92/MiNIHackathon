@@ -241,6 +241,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013298573622, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
     type: 2}
   m_PrefabInternal: {fileID: 465136020}
+--- !u!1001 &60426150
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238051054737040, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114937060560013952, guid: b6c393b6f1733df41a3440a8ee08ae75,
+        type: 2}
+      propertyPath: speed
+      value: 0.002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6c393b6f1733df41a3440a8ee08ae75, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!4 &95611976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498772044931394, guid: 3fe6e2cf451efd6429ae0e62c308bbb4,
@@ -1471,9 +1518,12 @@ MonoBehaviour:
     type: 2}
   enemyPrefab: {fileID: 114634914270376630, guid: b6c393b6f1733df41a3440a8ee08ae75,
     type: 2}
+  bombkaPrefab: {fileID: 114554010647829260, guid: a1f0bda3b853c5f408022e5dc7b6a580,
+    type: 2}
   startDistance: 1
-  enemyRadius: 1
-  enemySeconds: 3
+  enemyRadius: 5
+  enemySeconds: 5
+  iloscBombek: 5
 --- !u!114 &1280105747
 MonoBehaviour:
   m_ObjectHideFlags: 0

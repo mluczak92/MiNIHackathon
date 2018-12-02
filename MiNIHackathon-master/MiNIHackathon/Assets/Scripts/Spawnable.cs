@@ -6,14 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(DirectionIndicator))]
 public class Spawnable : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
+
+    public GameObject MyGameObject { get { return gameObject; } }
 
     public void Init(GameObject Cursor)
     {
