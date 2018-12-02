@@ -18,7 +18,7 @@ public class AngryEnemy : MonoBehaviour
     void Update()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("cel");
-        GameObject closestEnemy = choina;
+        GameObject closestEnemy = null;
         var distance = Mathf.Infinity;
         var playerPos = transform.position;
 
