@@ -5,24 +5,48 @@ using UnityEngine;
 public class AngryEnemy : MonoBehaviour
 {
     string choinaName = "ChoinaPre(Clone)";
+    string bombaName = "BombaPre(Clone)";
     GameObject choina;
     public float speed = 0.005f;
-    // Use this for initialization
+
     void Start()
     {
-        choina = GameObject.Find(choinaName);
         transform.LookAt(choina.transform);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, choina.transform.position, speed);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("cel");
+        GameObject closestEnemy = null;
+        var distance = Mathf.Infinity;
+        var playerPos = transform.position;
+
+        foreach (var enemy in enemies)
+        {
+            var diff = enemy.transform.position - playerPos;
+            var currDistance = diff.sqrMagnitude;
+
+            if (currDistance < distance)
+            {
+                closestEnemy = enemy;
+                distance = currDistance;
+            }
+        }
+
+        transform.LookAt(closestEnemy.transform);
+        transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, speed);
     }
 
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log(col.gameObject.name);
         if (col.gameObject.name == choinaName)
             Destroy(gameObject);
+        else if (col.gameObject.name == bombaName)
+        {
+            Destroy(gameObject);
+            FindObjectOfType<GameController>().SpawnBombka();
+        }
     }
 }

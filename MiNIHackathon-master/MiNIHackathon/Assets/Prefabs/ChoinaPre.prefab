@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 64102409074849476}
   m_Layer: 0
   m_Name: ChoinaPre
-  m_TagString: Untagged
+  m_TagString: cel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

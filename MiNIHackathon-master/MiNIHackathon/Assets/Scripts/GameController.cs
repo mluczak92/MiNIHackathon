@@ -56,17 +56,22 @@ public class GameController : MonoBehaviour
 
     private void SpawnBombki()
     {
-        BoxCollider box = choinka.GetComponent<BoxCollider>();
-        Vector3 choinkaPoss = choinka.transform.position;
         for (int i = 0; i < iloscBombek; i++)
         {
-            float from = -enemyRadius + startDistance;
-            float to = enemyRadius + startDistance;
-            GameObject bombka = Spawn(bombkaPrefab, new Vector3(Random.Range(from, to), Random.Range(choinkaPoss.y, box.size.y), Random.Range(from, to)), Quaternion.identity);
-            Vector3 closest = box.ClosestPoint(bombka.transform.position);
-            bombka.transform.position = closest;
+            SpawnBombka();
         }
 
+    }
+
+    public void SpawnBombka()
+    {
+        BoxCollider box = choinka.GetComponent<BoxCollider>();
+        Vector3 choinkaPoss = choinka.transform.position;
+        float from = -enemyRadius + startDistance;
+        float to = enemyRadius + startDistance;
+        GameObject bombka = Spawn(bombkaPrefab, new Vector3(Random.Range(from, to), Random.Range(choinkaPoss.y, box.size.y), Random.Range(from, to)), Quaternion.identity);
+        Vector3 closest = box.ClosestPoint(bombka.transform.position);
+        bombka.transform.position = closest;
     }
 
     private void SpawnNextEnemy()
